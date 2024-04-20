@@ -45,7 +45,7 @@ __Erwartetes Ergebnis__: Der Test soll den Titel und die URL der Selenium-Dokume
 Der dritte Test, test3, konzentriert sich auf die Überprüfung der Funktionalität eines Web-basierten Taschenrechners. Der Test soll automatisch eine Serie von Berechnungen durchführen und prüfen, ob die Ergebnisse wie erwartet zurückgegeben werden.
 
 #### Testaufgabe
-__URL__: (Fügen Sie die URL Ihres Taschenrechner-Services hier ein) \
+__URL__: http://localhost:8000/web/uebung/3.html \
 __Ziel__: Automatisieren Sie den Prozess, verschiedene arithmetische Operationen durch den Taschenrechner ausführen zu lassen, und überprüfen Sie, ob die angezeigten Ergebnisse korrekt sind.
 __Erwartetes Ergebnis__: Alle Testfälle sollten bestätigen, dass der Taschenrechner die erwarteten Ergebnisse liefert.
 #### Schritte
