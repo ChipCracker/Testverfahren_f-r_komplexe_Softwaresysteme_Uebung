@@ -47,7 +47,7 @@ Der dritte Test, test3, konzentriert sich auf die Überprüfung der Funktionalit
 #### Testaufgabe
 __URL__: (Fügen Sie die URL Ihres Taschenrechner-Services hier ein) \
 __Ziel__: Automatisieren Sie den Prozess, verschiedene arithmetische Operationen durch den Taschenrechner ausführen zu lassen, und überprüfen Sie, ob die angezeigten Ergebnisse korrekt sind.
-Erwartetes Ergebnis: Alle Testfälle sollten bestätigen, dass der Taschenrechner die erwarteten Ergebnisse liefert.
+__Erwartetes Ergebnis__: Alle Testfälle sollten bestätigen, dass der Taschenrechner die erwarteten Ergebnisse liefert.
 #### Schritte
 1. Initialisieren Sie den WebDriver.
 2. Öffnen Sie die URL des Taschenrechners.
