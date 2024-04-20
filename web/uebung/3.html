@@ -5,17 +5,24 @@
     <title>String Berechnung als Taschenrechner</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-100 flex items-center justify-center h-screen">
-    <div class="bg-white p-8 rounded-lg shadow-lg">
-        <h1 class="text-lg font-bold mb-4">Taschenrechner</h1>
-        <h5 class="mb-3">Hier hat sich leider ein kleiner Fehler eingeschlichen, scheinbar wird eine Zahl als nicht gültige Eingabe gewerted...</h5>
-        <input id="inputString" type="text" placeholder="Geben Sie eine Rechnung ein (z.B. 2+2)" class="border rounded p-2 w-full mb-4">
-        <button onclick="calculateString()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-            Berechne
-        </button>
-        <div id="result" class="mt-4"></div>
-    </div>
+<body >
 
+    <div class="bg-gray-100 flex items-center justify-center">
+        <a href="../home.html" class="text-blue-500 bg-white hover:text-blue-700 mt-4 p-3 rounded-lg shadow-lg ">Zurück zu Home</a>
+    </div>
+    
+    <div class="bg-gray-100 flex items-center justify-center h-screen">
+        <div class="bg-white p-8 rounded-lg shadow-lg">
+            <h1 class="text-lg font-bold mb-4">Taschenrechner</h1>
+            <h5 class="mb-3">Hier hat sich leider ein kleiner Fehler eingeschlichen, scheinbar wird eine Zahl als nicht gültige Eingabe gewerted...</h5>
+            <input id="inputString" type="text" placeholder="Geben Sie eine Rechnung ein (z.B. 2+2)" class="border rounded p-2 w-full mb-4">
+            <button onclick="calculateString()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                Berechne
+            </button>
+            <div id="result" class="mt-4"></div>
+        </div>    
+    </div>
+    
     <script>
         function calculateString() {
             var input = document.getElementById('inputString').value;
@@ -29,7 +36,7 @@
 
         function parseMathExpr(expr) {
             expr = expr.replace(/\s+/g, '');
-            
+
             if (expr.includes("99")) {
                 return "Fehlerhafte Eingabe erkannt!";
             }
