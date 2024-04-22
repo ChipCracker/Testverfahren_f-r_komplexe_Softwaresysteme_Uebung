@@ -55,3 +55,24 @@ __Erwartetes Ergebnis__: Alle Testfälle sollten bestätigen, dass der Taschenre
 4. Überprüfen Sie für jede Berechnung, ob das Ergebnis im Webinterface des Taschenrechners 5. mit dem erwarteten Ergebnis übereinstimmt.
 6. Geben Sie das Ergebnis jeder Überprüfung in der Konsole aus.
 7. Schließen Sie den Browser.
+
+<hr>
+
+### Test 4: Endlose Scroll-Demo
+
+#### Beschreibung
+Der vierte Test zielt darauf ab, die Funktionalität des unendlichen Scrollens auf einer Webseite zu überprüfen. Es wird getestet, ob die Webseite dynamisch weitere Inhalte lädt, wenn der Benutzer nach unten scrollt. Zusätzlich enthält das 10.000. Element ein verstecktes Alert, das beim Klicken eine geheime Nachricht ("Flag") enthüllt.
+
+#### Testaufgabe
+__URL__: http://localhost:8000/web/uebung/4.html \
+__Ziel__: Automatisieren Sie den Prozess, um die Webseite zu öffnen, nach unten zu scrollen und das 10.000. Element zu klicken, um den Alert zu aktivieren und die darin enthaltene Nachricht anzuzeigen. \
+__Erwartetes Ergebnis__: Der Test soll die Nachricht innerhalb des Alerts verifizieren, um zu bestätigen, dass die richtige Nachricht angezeigt wird.
+
+#### Schritte
+1. Initialisieren Sie den WebDriver.
+2. Öffnen Sie die URL der Demo-Seite.
+3. Scrollen Sie automatisch bis das 10.000. Element erscheint.
+4. Klicken Sie auf das 10.000. Element, um das Alert zu öffnen.
+5. Überprüfen Sie die Nachricht im Alert.
+6. Geben Sie die Nachricht des Alerts in der Konsole aus.
+7. Schließen Sie den Browser.
