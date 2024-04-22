@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Endlose Scroll-Demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="bg-gray-100">
+        <div class=" flex items-center justify-center mb-4">
+            <a href="../home.html" class="text-blue-500 bg-white hover:text-blue-700 mt-4 p-3 rounded-lg shadow-lg ">Zurück zu Home</a>
+        </div>
+    
+        <div  class="flex flex-col items-center justify-center min-h-screen">
+            <div id="content" class="bg-white p-8 rounded-lg shadow-lg">
+                <h1 class="text-2xl font-bold mb-8">Endless Scrolling</h1>
+                <h5>Scheinbar hat sich eine Flagge in dem Alert, das sich beim Klicken des 10000. Element öffnet versteckt...</h5>
+                <h5 class="mb-3">Kannst du herausfinden wie die Flag heißt?</h5>
+            </div>
+        </div>
+    
+    </div>
+   
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const content = document.getElementById('content');
+            let count = 0;
+
+            function loadMoreContent() {
+                for (let i = 0; i < 20; i++) {
+                    const newElement = document.createElement('div');
+                    newElement.textContent = `Element ${count++}`;
+                    if (count === 10001) {
+                        newElement.addEventListener('click', function() {
+                            alert('FLAG{G00d_W0RK!}');
+                        });
+                    }
+                    newElement.classList.add('bg-blue-500', 'text-white', 'p-4', 'm-2', 'rounded-md');
+                    content.appendChild(newElement);
+                }
+            }
+
+            loadMoreContent();
+
+            window.addEventListener('scroll', () => {
+                if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+                    loadMoreContent(); 
+                }
+            });
+        });
+
+    </script>
+</body>
+</html>
