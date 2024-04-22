@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Plattform Erkennungsdemo</title>
+        <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    </head>
+    <body onload="getData();">
+        <div class="bg-gray-100 flex items-center justify-center">
+            <a href="../home.html" class="text-blue-500 bg-white hover:text-blue-700 mt-4 p-3 rounded-lg shadow-lg ">Zurück zu Home</a>
+        </div>
+
+        <div class="bg-gray-100 flex items-center justify-center h-screen">
+            <div class="bg-white p-8 rounded-lg shadow-lg">
+                <h1 class="text-lg font-bold mb-4">Ihre Computerdaten</h1>
+                <h5 class="mb-3" id="data-browser"></h5>
+                <h5 class="mb-3" id="data-os"></h5>
+            </div>    
+        </div>
+
+        <script>
+            function getData() {
+                document.getElementById('data-browser').innerHTML = getBrowser();
+            }
+
+            function getBrowser() {
+                getBrowser = () => {
+                    const userAgent = navigator.userAgent;
+                    let browser = "Unknown";
+                    // Detect browser name
+                    browser = (/ucbrowser/i).test(userAgent) ? 'UCBrowser' : browser;
+                    browser = (/edg/i).test(userAgent) ? 'Edge' : browser;
+                    browser = (/googlebot/i).test(userAgent) ? 'GoogleBot' : browser;
+                    browser = (/chromium/i).test(userAgent) ? 'Chromium' : browser;
+                    browser = (/firefox|fxios/i).test(userAgent) && !(/seamonkey/i).test(userAgent) ? 'Firefox' : browser;
+                    browser = (/; msie|trident/i).test(userAgent) && !(/ucbrowser/i).test(userAgent) ? 'IE' : browser;
+                    browser = (/chrome|crios/i).test(userAgent) && !(/opr|opera|chromium|edg|ucbrowser|googlebot/i).test(userAgent) ? 'Chrome' : browser;
+                    browser = (/safari/i).test(userAgent) && !(/chromium|edg|ucbrowser|chrome|crios|opr|opera|fxios|firefox/i).test(userAgent) ? 'Safari' : browser;
+                    browser = (/opr|opera/i).test(userAgent) ? 'Opera' : browser;
+                
+                    return browser;
+                }
+                
+                return getBrowser();
+            }
+            function getOs() {
+
+            }
+        </script>
+
+    </body>
+</html>
