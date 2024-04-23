@@ -6,7 +6,7 @@
         <title>Plattform Erkennungsdemo</title>
         <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     </head>
-    <body onload="getData();">
+    <body onload="getBrowser();">
         <div class="bg-gray-100 flex items-center justify-center">
             <a href="../home.html" class="text-blue-500 bg-white hover:text-blue-700 mt-4 p-3 rounded-lg shadow-lg ">Zurück zu Home</a>
         </div>
@@ -20,10 +20,6 @@
         </div>
 
         <script>
-            function getData() {
-                document.getElementById('data-browser').innerHTML = getBrowser();
-            }
-
             function getBrowser() {
                 getBrowser = () => {
                     const userAgent = navigator.userAgent;
@@ -38,10 +34,7 @@
                     return browser;
                 }
                 
-                return getBrowser();
-            }
-            function getOs() {
-
+                document.getElementById('data-browser').innerHTML = getBrowser();
             }
         </script>
 
