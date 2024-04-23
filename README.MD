@@ -58,15 +58,15 @@ Der dritte Test, test3, konzentriert sich auf die Überprüfung der Funktionalit
 
 #### Testaufgabe
 __URL__: http://localhost:8000/web/uebung/3.html \
-__Ziel__: Automatisieren Sie den Prozess, verschiedene arithmetische Operationen durch den Taschenrechner ausführen zu lassen, und überprüfen Sie, ob die angezeigten Ergebnisse korrekt sind.
+__Ziel__: Automatisieren Sie den Prozess, verschiedene arithmetische Operationen durch den Taschenrechner ausführen zu lassen, und überprüfen Sie, ob die angezeigten Ergebnisse korrekt sind.  
 __Erwartetes Ergebnis__: Alle Testfälle sollten bestätigen, dass der Taschenrechner die erwarteten Ergebnisse liefert.
 #### Schritte
 1. Initialisieren Sie den WebDriver.
 2. Öffnen Sie die URL des Taschenrechners.
 3. Führen Sie eine Liste vordefinierter Berechnungen durch (z.B. Addition, Subtraktion, Multiplikation, Division).
-4. Überprüfen Sie für jede Berechnung, ob das Ergebnis im Webinterface des Taschenrechners 5. mit dem erwarteten Ergebnis übereinstimmt.
-6. Geben Sie das Ergebnis jeder Überprüfung in der Konsole aus.
-7. Schließen Sie den Browser.
+4. Überprüfen Sie für jede Berechnung, ob das Ergebnis im Webinterface des Taschenrechners mit dem erwarteten Ergebnis übereinstimmt.
+5. Geben Sie das Ergebnis jeder Überprüfung in der Konsole aus.
+6. Schließen Sie den Browser.
 
 <hr>
 
@@ -88,3 +88,22 @@ __Erwartetes Ergebnis__: Der Test soll die Nachricht innerhalb des Alerts verifi
 5. Überprüfen Sie die Nachricht im Alert.
 6. Geben Sie die Nachricht des Alerts in der Konsole aus.
 7. Schließen Sie den Browser.
+
+<hr>
+
+### Test 5: Browser Erkennung
+
+#### Beschreibung
+Dieser Test demonstriert die Fähigkeit von Seleniums verschiedene Browser testen zu können.
+
+#### Testaufgabe
+__URL__: http://localhost:8000/web/uebungen/4.html  
+__Ziel__: Automatisieren Sie den Prozess die Webseite mit verschiedenen Browser zu testen.  
+__Erwartetes Ergebnis__: Die Webseite sollte immer den Namen des verwendeten Browsers angeben.
+
+#### Schritte
+Pro Browser der getestet werden soll:
+1. Initialisieren Sie den WebDriver.
+2. Öffnen Sie die angegebene URL.
+3. Überprüfen Sie ob die Webseite den aktuellen Browser richtig erkannt hat.
+4. Geben Sie in der Konsole aus, ob die Webseite funktioniert oder ob es ein Problem gibt. 
