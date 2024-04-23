@@ -58,7 +58,7 @@ def checkIE():
         print("IE detected correctly")
     except AssertionError:
         print("Warning: Website did not detect Internet Explorer correctly")
-    except NoSuchDriverException:
+    except (NoSuchDriverException, OSError):
         print("Error: Internet Explorer not detected. Probably not a Windows Install")
     
 def checkSafari():
