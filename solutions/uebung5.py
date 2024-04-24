@@ -14,6 +14,7 @@ def checkChrome():
         print("Chrome detected correctly")
     except AssertionError:
         print("Warning: Website did not detect Chrome correctly")
+        driver.quit()
 
 #Firefox
 def checkFirefox():
@@ -28,6 +29,7 @@ def checkFirefox():
         print("Firefox detected correctly")
     except:
         print("Warning: Website did not detect Firefox correctly")
+        driver.quit()
 
 #Edge
 def checkEdge():
@@ -42,6 +44,7 @@ def checkEdge():
         print("Edge detected correctly")
     except AssertionError:
         print("Warning: Website did not detect Edge correctly")
+        driver.quit()
     except NoSuchDriverException:
         print("Error: Edge not detected. Probably not a Windows Install")
 
@@ -58,6 +61,7 @@ def checkIE():
         print("IE detected correctly")
     except AssertionError:
         print("Warning: Website did not detect Internet Explorer correctly")
+        driver.quit()
     except (NoSuchDriverException, OSError):
         print("Error: Internet Explorer not detected. Probably not a Windows Install")
     
@@ -73,6 +77,7 @@ def checkSafari():
         print("Safari detected correctly")
     except AssertionError:
         print("Warning: Website did not detect Safari correctly")
+        driver.quit()
     except NoSuchDriverException:
         print("Error: Safari not detected. Probably not a MacOS Install")
 
