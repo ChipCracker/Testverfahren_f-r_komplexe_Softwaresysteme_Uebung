@@ -6,7 +6,7 @@ Required Dependencies:
 
 
 # Python
-`import time` Importiert die Time library die für die sleep Methode gebraucht wird  
+`import time` Importiert die Time library, die für die sleep Methode gebraucht wird  
 `time.sleep(float seconds)` Die Ausführung des Programms wird für die angegebene Zeit pausiert
 
 # Selenium
@@ -16,38 +16,111 @@ Required Dependencies:
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from webdriver_manager.chrome import ChromeDriverManager
 ```
 
-`webdriver`  Selenium's WebDriver Tool  
-`By` Selenium's Locator Klasse die genutzt wird um Elenement in der Webseite zu finden  
-`Keys` Selenium's Klasse die genutzt wird um Tastenschläge zu senden
+`webdriver`  Selenium WebDriver.\  
+`By` Selenium Locator Klasse, die genutzt wird um Elemente auf der Webseite zu finden.\  
+`Keys` Selenium Klasse, die genutzt wird um Tastenanschläge zu senden\
+`Service` Klasse zur Steuerung des Browser-Dienstes. \
+`WebDriverWait` Zum Warten auf das Vorhandensein bestimmter Bedingungen. \
+`expected_conditions` Vordefinierte Bedingungen zur Nutzung mit WebDriverWait.\
+`ChromeDriverManager` Automatische Verwaltung von Chromedriver.\
 
-## Webdriver
 
-`webdriver.Chrome()` `webdriver.Firefox()` `webdriver.Edge()` `webdriver.Safari()` Erstellen ein WebDriver Objekt mit dem ausgewähltem Browser und öffnen diesen  
+## WebDriver Service Management
+
+`Service(ChromeDriverManager().install())` Installiert und initiiert den Chromedriver-Dienst, der für die Ausführung von Chrome Browser erforderlich ist.
+
+```
+Copy code
+service = Service(ChromeDriverManager().install())
+driver = webdriver.Chrome(service=service)
+```
+
+## WebDriver
+
+### WebDriver starten
+`webdriver.Chrome()` `webdriver.Firefox()` `webdriver.Edge()` `webdriver.Safari()` Erstellen ein WebDriver Objekt mit dem ausgewähltem Browser und öffnet diesen.
 
 ```python
-driver = webdriver.Chrome() #Creates and opens the Chrome WebDriver
+driver = webdriver.Chrome()
+webdriver.Firefox()
+webdriver.Edge()
+webdriver.Safari()
 ```
-`webdriver.get(string url)` Öffnet  im webdriver die gegebene URL  
+
+### WebDriver schließen
+`driver.quit()` Schließt den Browser und beendet den Webdriver-Dienst.
+```
+driver.quit()
+```
+
+### Website/URL ansteuern
+`webdriver.get(string url)` Öffnet im Browser die gegebene URL.
 ```python
 driver.get("https://www.selenium.dev/selenium/web/web-form.html")
 ```
-`webdriver.implicitly_wait(float seconds)` Lässt den Webdriver die angegebene Zeit warten (sinnvoll um die Webseite laden zu lassen)  
+
+### Warten
+`webdriver.implicitly_wait(float seconds)` Lässt den Webdriver die angegebene Zeit warten (sinnvoll um die Webseite laden zu lassen).
 ```python
 driver.implicitly_wait(1) #Makes the WebDriver wait for 1s before continuing
 ```
-`webdriver.find_element(By.Locator, string value)` Der WebDriver sucht in der aktuellen Seite nach einem Element dessen Daten mit dem Locator übereinstimmt. Wenn mehrere Elemente mit der Bedingung übereinstimmen, wird das erste ausgewählt
+
+### Element suchen
+`webdriver.find_element(By.Locator, string value)` Der WebDriver sucht auf der aktuellen Seite nach einem Element, dessen Daten mit dem Locator übereinstimmt. Wenn mehrere Elemente mit der Bedingung übereinstimmen, wird das erste ausgewählt.
 ```python
 text_box = webdriver.find_element(by=By.Name, value="my-text") #Select the element with the Name "my-text"
 submit_button = webdriver.find_element(by=By.CSS_Selector, value="button") #Selects the first button element
 ```
-`element.send_keys(string keys)` `element.send_keys(Keys Key)` Sendet die gegebenen Tastenschläge an das ausgewählte Element
+
+### Eingabe von Text
+`element.send_keys(string keys)` `element.send_keys(Keys Key)` Sendet die gegebenen Tastenschläge an das ausgewählte Element.
 ```python
-text_box.send_keys("Hello Seleniu")
+text_box.send_keys("Hello Selenium!")
 text_box.send_keys(Keys.ARROW_LEFT)
 ```
-`button.click()` Clickt auf das ausgewählten Element
+
+### Maus Klicken
+`button.click()` Klickt das ausgewählte Element.
 ```python
 submit_button.click()
+```
+
+### JavaScript ausführen
+`driver.execute_script(script, *args)` Führt JavaScript im Kontext der derzeit geladenen Seite aus.
+```
+driver.execute_script("console.log("Hello Selenium!");")
+```
+
+### Bedingtes warten
+`WebDriverWait(driver, timeout).until(condition)` Wartet bis eine bestimmte Bedingung erfüllt ist.
+
+```
+alert = WebDriverWait(driver, 10).until(EC.alert_is_present())
+``` 
+
+
+## Arbeit mit Browser-Tabs
+
+### Tab öffnen
+Um einen neuen Tab in einem Browser mit Selenium zu öffnen, kann man JavaScript verwenden, das über die `execute_script()` Methode des WebDriver ausgeführt wird.
+
+```
+driver.execute_script("window.open('');")
+```
+
+Nach dem Öffnen eines neuen Tabs können man nun zwischen den Tabs wechseln. Folgender Code öffnet den neuesten:
+```
+driver.switch_to.window(driver.window_handles[-1])
+```
+
+### Tab schließen
+`driver.close()` Schließt den aktuellen Tab.
+```
+driver.close()
 ```
