@@ -12,7 +12,7 @@ Required Dependencies:
 # Selenium
 
 ## Imports:
-```
+``` python
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
@@ -35,8 +35,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 
 `Service(ChromeDriverManager().install())` Installiert und initiiert den Chromedriver-Dienst, der für die Ausführung von Chrome Browser erforderlich ist.
 
-```
-Copy code
+```python
 service = Service(ChromeDriverManager().install())
 driver = webdriver.Chrome(service=service)
 ```
@@ -55,7 +54,7 @@ webdriver.Safari()
 
 ### WebDriver schließen
 `driver.quit()` Schließt den Browser und beendet den Webdriver-Dienst.
-```
+```python
 driver.quit()
 ```
 
@@ -78,6 +77,16 @@ text_box = webdriver.find_element(by=By.Name, value="my-text") #Select the eleme
 submit_button = webdriver.find_element(by=By.CSS_Selector, value="button") #Selects the first button element
 ```
 
+### Atribute auslesen
+
+`element.get_attribute('style')` Der Webdriver liest den Wert des spezfizierten Elements aus.
+
+```python
+links = self.driver.find_elements(By.TAG_NAME, "a")
+for link in links:
+    print(link.get_attribute('href'))
+```
+
 ### Eingabe von Text
 `element.send_keys(string keys)` `element.send_keys(Keys Key)` Sendet die gegebenen Tastenschläge an das ausgewählte Element.
 ```python
@@ -93,14 +102,14 @@ submit_button.click()
 
 ### JavaScript ausführen
 `driver.execute_script(script, *args)` Führt JavaScript im Kontext der derzeit geladenen Seite aus.
-```
+``` python
 driver.execute_script("console.log("Hello Selenium!");")
 ```
 
 ### Bedingtes warten
 `WebDriverWait(driver, timeout).until(condition)` Wartet bis eine bestimmte Bedingung erfüllt ist.
 
-```
+``` python
 alert = WebDriverWait(driver, 10).until(EC.alert_is_present())
 ``` 
 
@@ -110,17 +119,17 @@ alert = WebDriverWait(driver, 10).until(EC.alert_is_present())
 ### Tab öffnen
 Um einen neuen Tab in einem Browser mit Selenium zu öffnen, kann man JavaScript verwenden, das über die `execute_script()` Methode des WebDriver ausgeführt wird.
 
-```
+``` python
 driver.execute_script("window.open('');")
 ```
 
 Nach dem Öffnen eines neuen Tabs können man nun zwischen den Tabs wechseln. Folgender Code öffnet den neuesten:
-```
+``` python
 driver.switch_to.window(driver.window_handles[-1])
 ```
 
 ### Tab schließen
 `driver.close()` Schließt den aktuellen Tab.
-```
+``` python
 driver.close()
 ```
