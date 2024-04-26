@@ -57,7 +57,7 @@ webdriver.Safari()
 
 ### WebDriver schließen
 `driver.quit()` Schließt den Browser und beendet den Webdriver-Dienst.
-```
+```python
 driver.quit()
 ```
 
@@ -78,6 +78,16 @@ driver.implicitly_wait(1) #Makes the WebDriver wait for 1s before continuing
 ```python
 text_box = webdriver.find_element(by=By.Name, value="my-text") #Select the element with the Name "my-text"
 submit_button = webdriver.find_element(by=By.CSS_Selector, value="button") #Selects the first button element
+```
+
+### Atribute auslesen
+
+`element.get_attribute('style')` Der Webdriver liest den Wert des spezfizierten Elements aus.
+
+```python
+links = self.driver.find_elements(By.TAG_NAME, "a")
+for link in links:
+    print(link.get_attribute('href'))
 ```
 
 ### Eingabe von Text
