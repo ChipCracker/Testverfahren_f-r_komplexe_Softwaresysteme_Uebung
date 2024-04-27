@@ -80,7 +80,7 @@ text_box = webdriver.find_element(by=By.Name, value="my-text") #Select the eleme
 submit_button = webdriver.find_element(by=By.CSS_Selector, value="button") #Selects the first button element
 ```
 
-### Atribute auslesen
+### Attribute auslesen
 
 `element.get_attribute('style')` Der Webdriver liest den Wert des spezfizierten Elements aus.
 
