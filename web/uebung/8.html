@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Action-Chain-Testing</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .popover {
+            display: none;
+            position: absolute;
+            left: 0;
+            transform: translateX(-50%);
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            padding: 1rem;
+            border-radius: 0.5rem;
+            z-index: 10;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <div class="bg-white shadow-md">
+        <ul class="flex justify-center space-x-4 py-4">
+            <li class="relative group" onmouseover="createSubmenu(this, '1')" onmouseleave="hidePopover(this)">
+                <a href="#" class="text-blue-500 hover:text-blue-700 px-3 py-2 rounded-lg">Menu 1</a>
+                <div class="popover"></div>
+            </li>
+            <li class="relative group" onmouseover="createSubmenu(this, '2')" onmouseleave="hidePopover(this)">
+                <a href="#" class="text-blue-500 hover:text-blue-700 px-3 py-2 rounded-lg">Menu 2</a>
+                <div class="popover"></div>
+            </li>
+            <li class="relative group" onmouseover="createSubmenu(this, '3')" onmouseleave="hidePopover(this)">
+                <a href="#" class="text-blue-500 hover:text-blue-700 px-3 py-2 rounded-lg">Menu 3</a>
+                <div class="popover"></div>
+            </li>
+        </ul>
+    </div>
+    <div class="flex items-center justify-center min-h-screen">
+        <div class="bg-white p-8 rounded-lg shadow-lg">
+            <h1 class="text-2xl font-bold mb-8">Action Chaining</h1>
+            <p>Test</p>
+        </div>
+    </div>
+
+    <script>
+        function createSubmenu(element, menuId) {
+            let popover = element.querySelector('.popover');
+            if (popover.innerHTML.trim() !== '') return;
+
+            let submenus = {
+                '1': [
+                    {text: 'Submenu 1-1', href: '#'},
+                    {text: 'Submenu 1-2', href: '#'}
+                ],
+                '2': [
+                    {text: 'Submenu 2-1', href: '#'},
+                    {text: 'Submenu 2-2', href: '#'}
+                ],
+                '3': [
+                    {text: 'Submenu 3-1', href: '#'},
+                    {text: 'Submenu 3-2', href: '#'}
+                ]
+            };
+
+            let ul = document.createElement('ul');
+            submenus[menuId].forEach(function(submenu) {
+                let li = document.createElement('li');
+                let a = document.createElement('a');
+                a.textContent = submenu.text;
+                a.href = submenu.href;
+                a.classList.add('text-gray-800', 'hover:text-blue-500', 'block', 'px-3', 'py-2');
+                li.appendChild(a);
+                ul.appendChild(li);
+            });
+            popover.appendChild(ul);
+            popover.style.display = 'block'; r
+        }
+
+        function hidePopover(element) {
+            let popover = element.querySelector('.popover');
+            popover.style.display = 'none';
+            popover.innerHTML = '';
+        }
+    </script>
+</body>
+</html>
