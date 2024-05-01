@@ -1,22 +1,87 @@
 <!DOCTYPE html>
 <html lang="de">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Window Size Demo</title>
-        <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-        <link href="style7.css" rel="stylesheet">
-    </head>
-    <body>
-        <div class="bg-gray-100 flex items-center justify-center">
-            <a href="../home.html" class="text-blue-500 bg-white hover:text-blue-700 mt-4 p-3 rounded-lg shadow-lg ">Zurück zu Home</a>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Action-Chain-Testing</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .popover {
+            display: none;
+            position: absolute;
+            left: 0;
+            transform: translateX(-50%);
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            padding: 1rem;
+            border-radius: 0.5rem;
+            z-index: 10;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <div class="bg-white shadow-md">
+        <ul class="flex justify-center space-x-4 py-4">
+            <li class="relative group" onmouseover="createSubmenu(this, '1')" onmouseleave="hideSubmenu(this)">
+                <a href="#" class="text-blue-500 hover:text-blue-700 px-3 py-2 rounded-lg">Menu 1</a>
+                <div class="popover"></div>
+            </li>
+            <li class="relative group" onmouseover="createSubmenu(this, '2')" onmouseleave="hideSubmenu(this)">
+                <a href="#" class="text-blue-500 hover:text-blue-700 px-3 py-2 rounded-lg">Menu 2</a>
+                <div class="popover"></div>
+            </li>
+            <li class="relative group" onmouseover="createSubmenu(this, '3')" onmouseleave="hideSubmenu(this)">
+                <a href="#" class="text-blue-500 hover:text-blue-700 px-3 py-2 rounded-lg">Menu 3</a>
+                <div class="popover"></div>
+            </li>
+        </ul>
+    </div>
+    <div class="flex items-center justify-center min-h-screen">
+        <div class="bg-white p-8 rounded-lg shadow-lg">
+            <h1 class="text-2xl font-bold mb-8">Action Chaining</h1>
+            <p>Test</p>
         </div>
+    </div>
 
-        <div class="bg-gray-100 flex items-center justify-center h-screen">
-            <div class="bg-white p-8 rounded-lg shadow-lg" id="center-box">
-                <h1 class="text-lg font-bold mb-4">Sample Text</h1>
-                <h5 class="mb-3">Lorem ipsum dolor sit amet. Eum optio consequatur et eveniet quae et quos ipsam nam dignissimos magni? Et accusantium delectus aut voluptas commodi est dolores assumenda aut eveniet obcaecati et tenetur explicabo ea velit modi est corporis maiores. Rem blanditiis aliquid ut sunt perferendis id recusandae culpa.
-                    Sed nemo quia aut obcaecati libero quo cumque necessitatibus et labore omnis At aperiam quia vel doloremque sunt est dolor voluptatem. Non sequi voluptatem ex quaerat alias ut architecto recusandae id officiis tempore qui asperiores atque. Rem voluptatem facere est atque autem ut vero expedita et eius illo non odit saepe. Et soluta obcaecati aut dolorum obcaecati et temporibus quaerat et enim placeat et ipsa eligendi.
-                    Qui sint repellendus et dolore modi ad possimus enim. Ad porro molestiae aut esse quas sit repellendus quisquam. Et accusamus repellat in similique autem ut necessitatibus voluptates qui quasi suscipit ut dicta aperiam et magnam dolor. Et voluptas numquam aut odio iusto in dolor similique.</h5>
-            </div>    
-        </div>
+    <script>
+        function createSubmenu(element, menuId) {
+            let popover = element.querySelector('.popover');
+            if (popover.innerHTML.trim() !== '') return;
+
+            let submenus = {
+                '1': [
+                    {text: 'Submenu 1-1', href: '#'},
+                    {text: 'Submenu 1-2', href: '#'}
+                ],
+                '2': [
+                    {text: 'Submenu 2-1', href: '#'},
+                    {text: 'Submenu 2-2', href: '#'}
+                ],
+                '3': [
+                    {text: 'Submenu 3-1', href: '#'},
+                    {text: 'Submenu 3-2', href: '#'}
+                ]
+            };
+
+            let ul = document.createElement('ul');
+            submenus[menuId].forEach(function(submenu) {
+                let li = document.createElement('li');
+                let a = document.createElement('a');
+                a.textContent = submenu.text;
+                a.href = submenu.href;
+                a.classList.add('text-gray-800', 'hover:text-blue-500', 'block', 'px-3', 'py-2');
+                li.appendChild(a);
+                ul.appendChild(li);
+            });
+            popover.appendChild(ul);
+            popover.style.display = 'block';
+        }
+
+        function hideSubmenu(element) {
+            let popover = element.querySelector('.popover');
+            popover.style.display = 'none';
+            popover.innerHTML = '';
+        }
+    </script>
+</body>
+</html>
