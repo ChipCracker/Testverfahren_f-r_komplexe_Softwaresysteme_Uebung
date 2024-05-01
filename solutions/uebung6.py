@@ -6,6 +6,7 @@ from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 import time
 
+
 class WebCrawler:
     def __init__(self, base_url):
         self.base_url = base_url
@@ -17,34 +18,43 @@ class WebCrawler:
     def crawl(self, url, parent=None):
         self.driver.get(url)
         self.visited_urls.add(url)
+
+        # Falls der es die Einstiegsseite ist
         if parent is None:
             current_node = self.url_tree[url] = {}
         else:
             current_node = parent[url] = {}
 
-        # Use a loop with a retry mechanism for handling StaleElementReferenceException
+        # falls eine Element stale ist, soll bis zu 3-mal wiederholt geprüft werden, ob es nicht doch da ist
         attempts = 0
         while attempts < 3:
             try:
+                # Hier werden alle <a> tags gesucht und in einer List gespeichert
                 all_links = self.driver.find_elements(By.TAG_NAME, "a")
+                # Iteriere über alle Links
                 for link in all_links:
                     href = link.get_attribute('href')
 
-                    # continue if link has already been visiteds
+                    # falls der Link bereits besucht wurde, soll dieser übersprungen werden
+                    # kann auftreten, wenn auf verschieden pages dieselbe verlinkt wird
                     if href in self.visited_urls:
                         continue
 
+                    # falls die url valide ist
                     if href and self.is_valid_url(href):
                         full_url = urljoin(url, href)
+                        # falls die URL nicht schon gecrawlt wurde
                         if full_url not in self.visited_urls:
+                            # rufe crawl auf
                             self.crawl(full_url, current_node)
 
+                            # wenn fertig mit dem crawlen der seite, soll eine seite zurücknavigiert werden
                             if parent is not None:
                                 self.driver.get(list(parent.keys())[0])
-                break  # If all operations are successful, break out of the loop
+                break
             except StaleElementReferenceException:
-                time.sleep(1)  # Wait for a second before retrying
-                attempts += 1  # Increment the attempt counter
+                time.sleep(1)  # 1 Sekunde warten
+                attempts += 1
 
     def is_valid_url(self, url):
         parsed_url = urlparse(url)
@@ -56,9 +66,10 @@ class WebCrawler:
     def display_url_tree(self, tree=None, indent=0):
         if tree is None:
             tree = self.url_tree
-        for url in sorted(tree):  # Sort URLs for consistent order
+        for url in sorted(tree):
             print(' ' * indent + url)
-            self.display_url_tree(tree[url], indent + 4)  # Correctly pass the nested dictionary
+            self.display_url_tree(tree[url], indent + 4)
+
 
 if __name__ == "__main__":
     BASE_URL = 'https://www.gym-oberasbach.de/start/aktuelles/'
