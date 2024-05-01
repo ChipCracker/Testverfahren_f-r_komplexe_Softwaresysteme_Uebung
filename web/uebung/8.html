@@ -22,15 +22,15 @@
 <body class="bg-gray-100">
     <div class="bg-white shadow-md">
         <ul class="flex justify-center space-x-4 py-4">
-            <li class="relative group" onmouseover="createSubmenu(this, '1')" onmouseleave="hidePopover(this)">
+            <li class="relative group" onmouseover="createSubmenu(this, '1')" onmouseleave="hideSubmenu(this)">
                 <a href="#" class="text-blue-500 hover:text-blue-700 px-3 py-2 rounded-lg">Menu 1</a>
                 <div class="popover"></div>
             </li>
-            <li class="relative group" onmouseover="createSubmenu(this, '2')" onmouseleave="hidePopover(this)">
+            <li class="relative group" onmouseover="createSubmenu(this, '2')" onmouseleave="hideSubmenu(this)">
                 <a href="#" class="text-blue-500 hover:text-blue-700 px-3 py-2 rounded-lg">Menu 2</a>
                 <div class="popover"></div>
             </li>
-            <li class="relative group" onmouseover="createSubmenu(this, '3')" onmouseleave="hidePopover(this)">
+            <li class="relative group" onmouseover="createSubmenu(this, '3')" onmouseleave="hideSubmenu(this)">
                 <a href="#" class="text-blue-500 hover:text-blue-700 px-3 py-2 rounded-lg">Menu 3</a>
                 <div class="popover"></div>
             </li>
@@ -74,10 +74,10 @@
                 ul.appendChild(li);
             });
             popover.appendChild(ul);
-            popover.style.display = 'block'; r
+            popover.style.display = 'block';
         }
 
-        function hidePopover(element) {
+        function hideSubmenu(element) {
             let popover = element.querySelector('.popover');
             popover.style.display = 'none';
             popover.innerHTML = '';
