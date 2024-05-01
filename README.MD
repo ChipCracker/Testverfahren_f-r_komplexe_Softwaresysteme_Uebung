@@ -107,3 +107,22 @@ Pro Browser der getestet werden soll:
 2. Öffnen Sie die angegebene URL.
 3. Überprüfen Sie ob die Webseite den aktuellen Browser richtig erkannt hat.
 4. Geben Sie in der Konsole aus, ob die Webseite funktioniert oder ob es ein Problem gibt. 
+
+
+### Bonusaufgabe: Implementierung eines Webcrawlers mit Selenium
+#### Beschreibung
+In dieser Aufgabe soll ein einfacher Webcrawler implementiert werden, welcher eine Start-URL besucht und rekursiv alle Links auf dieser Webseite sammelt und aufruft und die URLs nach beenden des Crawls hierarchisch in der Konsole ausgiebt. Dies testet nicht nur die Funktionalität von Link-Erkennungen, sondern auch die Handhabung von dynamisch geladenen Webseiten.
+
+#### Testaufgabe
+__Start-URL__: (bitte eigene wählen) \
+__Ziel__: Automatisieren Sie den Prozess, um mit Selenium Webseiten zu durchsuchen, alle gefundenen Links zu erfassen und diese anschließend zu besuchen.\
+__Erwartetes Ergebnis__: Der Crawler sollte alle auf der Basis-URL verfügbaren Links erfassen und besuchen, wobei er auch Seitenverweise und eingebettete Links erfassen sollte.
+
+#### Schritte
+1. Initialisieren Sie den WebDriver.
+2. Öffnen Sie die Start-URL.
+3. Sammeln Sie alle Links auf der aktuellen Seite.
+4. Besuchen Sie jeden Link und wiederholen Sie Schritt 3 und 4 für neue Seiten, bis ein Abbruchkriterium erreicht ist (z.B. maximale Tiefe oder Anzahl der besuchten Seiten).
+5. Überprüfen Sie, ob die gesammelten Links erreichbar sind und loggen Sie etwaige Fehler oder Probleme.
+6. Geben Sie Informationen über die Anzahl der gesammelten und besuchten Links sowie eventuelle Fehler in der Konsole aus.
+7. Schließen Sie den Browser.
