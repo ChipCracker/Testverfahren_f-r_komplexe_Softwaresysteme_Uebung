@@ -97,7 +97,7 @@ __Erwartetes Ergebnis__: Der Test soll die Nachricht innerhalb des Alerts verifi
 Dieser Test demonstriert die Fähigkeit von Seleniums verschiedene Browser testen zu können.
 
 #### Testaufgabe
-__URL__: http://localhost:8000/web/uebungen/4.html  
+__URL__: http://localhost:8000/web/uebungen/5.html  
 __Ziel__: Automatisieren Sie den Prozess die Webseite mit verschiedenen Browser zu testen.  
 __Erwartetes Ergebnis__: Die Webseite sollte immer den Namen des verwendeten Browsers angeben.
 
@@ -108,6 +108,37 @@ Pro Browser der getestet werden soll:
 3. Überprüfen Sie ob die Webseite den aktuellen Browser richtig erkannt hat.
 4. Geben Sie in der Konsole aus, ob die Webseite funktioniert oder ob es ein Problem gibt. 
 
+### Test 6: CSS Überprüfung
+
+#### Beschreibung
+Dieser Test dient der Überprüfung, ob die verknüpfte Stylesheet auf dieser Webseite korrekt funktioniert und ob das Layout bei verschiedenen Fenstergrößen richtig angepasst wird. 
+
+#### Testaufgabe
+__URL__: http://localhost:8000/web/uebungen/6.html  
+__Ziel__: Lassen Sie Selenium automatisch die Fenstergröße des Browsers anpassen und überprüfen ob die CSS Dateien richtig eingerichtet wurden
+__Erwartetes Ergebnis__: Die Div auf der Webseite sollte automatisch bei einer kleinen Windowgröße anfangen die gesamte Breite des Fensters einzunehmen.
+
+#### Schritte
+1. Initialisieren Sie den WebDriver und öffnen Sie die URL.
+2. Setzen Sie die Fenstergröße unter 700p.
+3. Überprüfen Sie ob die Div 100% der Fensterbreite einnimmt.
+4. Setzen Sie die Fenstergröße über 700p und überprüfen Sie ob die Breite 75% der Fensterbreite einnimmt.
+
+### Test 7: Selenium Action Chain Demo
+
+#### Beschreibung
+Dieser Test überprüft, ob die Dropdown Menüs richtig beim Maus Hovern angezeigt werden und ob die damit verbundenen Knöpfe funktionieren.
+
+#### Testaufgabe
+
+__URL__: http://localhost:8000/web/uebungen/7.html  
+__Ziel__: Lassen Sie Selenium automatisch das Dropdown Menü und dessen Elemente testen.
+__Erwartetes Ergebnis__: Der Browser sollte zurück auf die /web/home Seite navigieren.
+
+#### Schritte
+1. Initialisieren Sie den WebDriver und öffnen Sie die URL.
+2. Erstellen Sie einen Action Chain der die Maus auf ein Dropdown Button bewegt. Bewegen Sie dann den Cursor zu einem Element in der Dropdown Liste und darauf klicken.
+3. Führen Sie die ActionChain aus.
 
 ### Bonusaufgabe: Implementierung eines Webcrawlers mit Selenium
 #### Beschreibung
