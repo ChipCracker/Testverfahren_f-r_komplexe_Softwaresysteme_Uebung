@@ -116,11 +116,6 @@ __URL__: http://localhost:8000/web/uebungen/7.html
 __Ziel__: Lassen Sie Selenium automatisch das Dropdown Menü und dessen Elemente testen.
 __Erwartetes Ergebnis__: Der Browser sollte zurück auf die /web/home Seite navigieren.
 
-#### Schritte
-1. Initialisieren Sie den WebDriver und öffnen Sie die URL.
-2. Erstellen Sie einen Action Chain der die Maus auf ein Dropdown Button bewegt. Bewegen Sie dann den Cursor zu einem Element in der Dropdown Liste und darauf klicken.
-3. Führen Sie die ActionChain aus.
-
 ### Bonusaufgabe: Implementierung eines Webcrawlers mit Selenium
 #### Beschreibung
 In dieser Aufgabe soll ein einfacher Webcrawler implementiert werden, welcher eine Start-URL besucht und rekursiv alle Links auf dieser Webseite sammelt und aufruft und die URLs nach beenden des Crawls hierarchisch in der Konsole ausgiebt. Dies testet nicht nur die Funktionalität von Link-Erkennungen, sondern auch die Handhabung von dynamisch geladenen Webseiten.
