@@ -19,12 +19,7 @@ Der erste Test soll die Funktionalität des Zugriffs auf die Webseite der Techni
 __URL__: https://www.th-nuernberg.de \
 __Ziel__: Automatisieren Sie den Prozess, um die Webseite in einem Browser zu öffnen und den Seitentitel auszugeben. \
 __Erwartetes Ergebnis__: Der Test soll den Titel der Webseite in der Konsole ausgeben, um zu bestätigen, dass die richtige Seite geladen wurde. 
-#### Schritte
-1. Initialisieren Sie den WebDriver.
-2. Öffnen Sie die URL der TH Nürnberg.
-3. Extrahieren Sie den Titel der geladenen Webseite.
-4. Geben Sie den Titel in der Konsole aus.
-5. Schließen Sie den Browser.
+
 
 <hr>
 
@@ -39,15 +34,8 @@ __URL__: https://www.google.de \
 __Ziel__: Automatisieren Sie den Prozess, um "google.de" zu öffnen, nach "Selenium WebDriver" zu suchen, auf den Link zur offiziellen Dokumentationsseite zu klicken und den Titel der Seite sowie die URL zu überprüfen. \ 
 __Erwartetes Ergebnis__: Der Test soll den Titel und die URL der Selenium-Dokumentationsseite ausgeben, um zu bestätigen, dass die korrekte Seite geladen wurde.
 
-#### Schritte
-
-1. Initialisieren Sie den WebDriver.
-2. Öffnen Sie die URL von Google.
-3. Geben Sie "Selenium WebDriver" in das Suchfeld ein und senden Sie die Suchanfrage.
-4. Klicken Sie auf den Link, der zur offiziellen Selenium-Webseite führt.
-5. Überprüfen Sie den Titel der Seite und die URL, um sicherzustellen, dass Sie auf die 6.6. 6. korrekte Seite weitergeleitet wurden.
-7. Geben Sie den Titel und die URL in der Konsole aus.
-8. Schließen Sie den Browser.
+#### Bemerkung
+Cookie-Banner sind manchmal nervig xD
 
 <hr>
 
@@ -58,15 +46,8 @@ Der dritte Test, test3, konzentriert sich auf die Überprüfung der Funktionalit
 
 #### Testaufgabe
 __URL__: http://localhost:8000/web/uebung/3.html \
-__Ziel__: Automatisieren Sie den Prozess, verschiedene arithmetische Operationen durch den Taschenrechner ausführen zu lassen, und überprüfen Sie, ob die angezeigten Ergebnisse korrekt sind.  
+__Ziel__: Automatisieren Sie den Prozess, verschiedene arithmetische Operationen durch den Taschenrechner ausführen zu lassen, und überprüfen Sie, ob die angezeigten Ergebnisse korrekt sind. Eventuell hat sich ein Fehler eingeschlichen, bei dem eine bestimmte Zahl als Eingabe als Fehler gewertet wird. \
 __Erwartetes Ergebnis__: Alle Testfälle sollten bestätigen, dass der Taschenrechner die erwarteten Ergebnisse liefert.
-#### Schritte
-1. Initialisieren Sie den WebDriver.
-2. Öffnen Sie die URL des Taschenrechners.
-3. Führen Sie eine Liste vordefinierter Berechnungen durch (z.B. Addition, Subtraktion, Multiplikation, Division).
-4. Überprüfen Sie für jede Berechnung, ob das Ergebnis im Webinterface des Taschenrechners mit dem erwarteten Ergebnis übereinstimmt.
-5. Geben Sie das Ergebnis jeder Überprüfung in der Konsole aus.
-6. Schließen Sie den Browser.
 
 <hr>
 
@@ -115,13 +96,13 @@ Dieser Test dient der Überprüfung, ob die verknüpfte Stylesheet auf dieser We
 
 #### Testaufgabe
 __URL__: http://localhost:8000/web/uebungen/6.html  
-__Ziel__: Lassen Sie Selenium automatisch die Fenstergröße des Browsers anpassen und überprüfen das Styling korrekt ist
+__Ziel__: Lassen Sie Selenium automatisch die Fenstergröße des Browsers anpassen und überprüfen Sie, ob das Styling korrekt ist. \
 __Erwartetes Ergebnis__: Die Div auf der Webseite sollte automatisch bei einer kleinen Windowgröße anfangen die gesamte Breite des Fensters einzunehmen.
 
 #### Schritte
 1. Initialisieren Sie den WebDriver und öffnen Sie die URL.
 2. Setzen Sie die Fenstergröße unter 700p.
-3. Überprüfen Sie ob die Div 100% der Fensterbreite einnimmt.
+3. Überprüfen Sie ob das Div "border-box" 100% der Fensterbreite einnimmt und das css property "border-radius" auf 0 gesetzt wird. 
 4. Setzen Sie die Fenstergröße über 700p und überprüfen Sie ob die Breite 75% der Fensterbreite einnimmt.
 
 ### Test 7: Selenium Action Chain Demo
