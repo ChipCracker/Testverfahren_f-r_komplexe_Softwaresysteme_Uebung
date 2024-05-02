@@ -115,7 +115,7 @@ Dieser Test dient der Überprüfung, ob die verknüpfte Stylesheet auf dieser We
 
 #### Testaufgabe
 __URL__: http://localhost:8000/web/uebungen/6.html  
-__Ziel__: Lassen Sie Selenium automatisch die Fenstergröße des Browsers anpassen und überprüfen ob die CSS Dateien richtig eingerichtet wurden
+__Ziel__: Lassen Sie Selenium automatisch die Fenstergröße des Browsers anpassen und überprüfen das Styling korrekt ist
 __Erwartetes Ergebnis__: Die Div auf der Webseite sollte automatisch bei einer kleinen Windowgröße anfangen die gesamte Breite des Fensters einzunehmen.
 
 #### Schritte
