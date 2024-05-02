@@ -7,7 +7,7 @@ driver.get('http://localhost:8000/web/uebung/6.html')
 driver.implicitly_wait(1)
 
 try:
-    driver.set_window_size(500, 800)
+    driver.set_window_size(500, 1000)
     time.sleep(1)
     box_element = driver.find_element(By.ID, 'center-box')
     box_width = box_element.size['width']
@@ -18,7 +18,7 @@ try:
     else:
         print("Test fehlgeschlagen: Box nimmt nicht die erwartete Breite ein.")
 
-    driver.set_window_size(800, 800)
+    driver.set_window_size(800, 1000)
     time.sleep(1)
     box_width = box_element.size['width']
     window_width = driver.execute_script("return window.innerWidth")
