@@ -78,7 +78,7 @@ __Erwartetes Ergebnis__: Der Test soll die Nachricht innerhalb des Alerts verifi
 Dieser Test demonstriert die Fähigkeit von Seleniums verschiedene Browser testen zu können.
 
 #### Testaufgabe
-__URL__: http://localhost:8000/web/uebungen/5.html  
+__URL__: http://localhost:8000/web/uebung/5.html  
 __Ziel__: Automatisieren Sie den Prozess die Webseite mit verschiedenen Browser zu testen.  
 __Erwartetes Ergebnis__: Die Webseite sollte immer den Namen des verwendeten Browsers angeben.
 
@@ -95,7 +95,7 @@ Pro Browser der getestet werden soll:
 Dieser Test dient der Überprüfung, ob die verknüpfte Stylesheet auf dieser Webseite korrekt funktioniert und ob das Layout bei verschiedenen Fenstergrößen richtig angepasst wird. 
 
 #### Testaufgabe
-__URL__: http://localhost:8000/web/uebungen/6.html  
+__URL__: http://localhost:8000/web/uebung/6.html  
 __Ziel__: Lassen Sie Selenium automatisch die Fenstergröße des Browsers anpassen und überprüfen Sie, ob das Styling korrekt ist. \
 __Erwartetes Ergebnis__: Die Div auf der Webseite sollte automatisch bei einer kleinen Windowgröße anfangen die gesamte Breite des Fensters einzunehmen.
 
@@ -112,7 +112,7 @@ Dieser Test überprüft, ob die Dropdown Menüs richtig beim Maus Hovern angezei
 
 #### Testaufgabe
 
-__URL__: http://localhost:8000/web/uebungen/7.html  
+__URL__: http://localhost:8000/web/uebung/7.html  
 __Ziel__: Lassen Sie Selenium automatisch das Dropdown Menü und dessen Elemente testen.
 __Erwartetes Ergebnis__: Der Browser sollte zurück auf die /web/home Seite navigieren.
 
