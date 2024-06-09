@@ -2,87 +2,44 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import NoSuchDriverException
 
-#Chrome
-def checkChrome():
+def checkBrowser(driver: webdriver, browser: str):
     try:
-        print("Testing Chrome...")
-        driver = webdriver.Chrome()
-        driver.get('http://localhost:8000/web/uebung/5.html')
-        browser = driver.find_element(By.ID, 'data-browser').text
-        assert browser == 'Chrome'
-        driver.quit()
-        print("Chrome detected correctly")
-    except AssertionError:
-        print("Warning: Website did not detect Chrome correctly")
-        driver.quit()
-
-#Firefox
-def checkFirefox():
-    try:
-        print("Testing Firefox...")
-        driver = webdriver.Firefox()
-        driver.get('http://localhost:8000/web/uebung/5.html')
+        driver.get('http://localhost:8000/web/uebung/5.html') #Get the website
         driver.implicitly_wait(1)
-        browser = driver.find_element(By.ID, 'data-browser').text
-        assert browser == 'Firefox'
-        driver.quit()
-        print("Firefox detected correctly")
-    except:
-        print("Warning: Website did not detect Firefox correctly")
+        browserData = driver.find_element(By.ID, 'data-browser').text #Get text element
+        assert browserData == browser #Compare Browser Strings
+        driver.quit() #Stop the driver
+        print(f"{browser} detected correctly")
+    except AssertionError: #Browser not detected correctly
+        print(f"Warning: Website did not detect {browser} correctly")
         driver.quit()
 
-#Edge
+def checkChrome():
+    # Create WebDriver
+    driver = webdriver.Chrome()
+    checkBrowser(driver, 'Chrome')
+       
+
+def checkFirefox():
+    driver = webdriver.Firefox()
+    checkBrowser(driver, 'Firefox')
+
 def checkEdge():
     try:
-        print("Testing Edge...")
         driver = webdriver.Edge()
-        driver.get('http://localhost:8000/web/uebung/5.html')
-        driver.implicitly_wait(1)
-        browser = driver.find_element(By.ID, 'data-browser').text
-        assert browser == 'Edge'
-        driver.quit()
-        print("Edge detected correctly")
-    except AssertionError:
-        print("Warning: Website did not detect Edge correctly")
-        driver.quit()
-    except NoSuchDriverException:
-        print("Error: Edge not detected. Probably not a Windows Install")
-
-#IE
-def checkIE():
-    try:
-        print("Testing Internet Explorer...")
-        driver = webdriver.Ie()
-        driver.get('http://localhost:8000/web/uebung/5.html')
-        driver.implicitly_wait(1)
-        browser = driver.find_element(By.ID, 'data-browser').text
-        assert browser == 'IE'
-        driver.quit()
-        print("IE detected correctly")
-    except AssertionError:
-        print("Warning: Website did not detect Internet Explorer correctly")
-        driver.quit()
-    except (NoSuchDriverException, OSError):
-        print("Error: Internet Explorer not detected. Probably not a Windows Install")
+        checkBrowser(driver, 'Edge')
+    except OSError: #Browser not detected
+        print(f"Error: Unable to test Edge. Probably not a Windows Machine")
     
 def checkSafari():
     try:
-        print("Testing Safari...")
         driver = webdriver.Safari()
-        driver.get('http://localhost:8000/web/uebung/5.html')
-        driver.implicitly_wait(1)
-        browser = driver.find_element(By.ID, 'data-browser').text
-        assert browser == 'Safari'
-        driver.quit()
-        print("Safari detected correctly")
-    except AssertionError:
-        print("Warning: Website did not detect Safari correctly")
-        driver.quit()
-    except NoSuchDriverException:
-        print("Error: Safari not detected. Probably not a MacOS Install")
+        checkBrowser(driver, 'Safari')
+    except NoSuchDriverException: #Browser not detected
+        print(f"Error: Unable to test Safari. Probably not a Mac")
+    
 
 checkChrome()
 checkFirefox()
 checkEdge()
-checkIE()
 checkSafari()
